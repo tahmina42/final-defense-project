@@ -11,7 +11,7 @@ if (isset($_GET['id'])){
 	
 	$result = $mailing->select("SELECT * FROM vaccine_assign WHERE p_id=$id");
 	
-	
+	//need to relate database
 	foreach ($result as $res) {
 		
 		$user_name 	=($res['p_name']);
