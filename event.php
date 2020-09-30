@@ -192,7 +192,7 @@ if (isset($_POST['post'])) {
   	if($event->insert($sql)){
 			
 				echo"Successfully Event Added";
-				echo"<a href='view-event.php'>Go to vaccine page</a>";
+				echo"<a href='view-event.php'>Go to Event page</a>";
 	
 			
 		}

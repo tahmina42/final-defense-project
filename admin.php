@@ -57,8 +57,8 @@ if (isset($_SESSION['email']))
 					<ul class="menu__box">
 						<li><a class="menu__item" href="admin.php">My Account</a></li>
 						<li><a class="menu__item" href="index.php">Home Page</a></li>
-						<li><a class="menu__item" href="health-worker-list.php">Health Worker List</a></li>
-						<li><a class="menu__item" href="patient-list.php">Patient List</a></li>
+						<li><a class="menu__item" href="all-health-worker.php">Health Worker List</a></li>
+						<li><a class="menu__item" href="all-patient.php">Patient List</a></li>
 						<li><a class="menu__item" href="event.php">Add Event</a></li>
 						<li><a class="menu__item" href="vaccine.php">Add Vaccine</a></li>
 						<li><a class="menu__item" href="logout.php">Log Out</a></li>
@@ -73,7 +73,7 @@ if (isset($_SESSION['email']))
 						<!--<li><a href="health-worker-profile.php">User Name</a></li>
 						<li><a href="health-worker-profile.php">User Name</a></li>-->
 						<li class="session-top"><?php  if (isset($_SESSION['email'])) : ?>
-							<a href="healthworker-dash.php"><?php echo $_SESSION['name']; ?></a>
+							<a href="admin.php"><?php echo $_SESSION['name']; ?></a>
 						</li>
 						<?php endif ?> 
 						<!--<li><img class="pro-img2" src="assets/img/user.png" alt="user-image"></li>-->
@@ -167,7 +167,7 @@ if (isset($_SESSION['email']))
 					</div>
 					<?php
 						echo "<div class='update-link'>
-								<a href=\"edithealthworkerprofile.php?id=$res[u_id]\">Update your proile</a> 
+								<a href=\"edithealthworkerprofile.php?id=$res[u_id]\">Update your profile</a> 
 							</div>";
 					?>
 					

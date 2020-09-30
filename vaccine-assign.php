@@ -9,9 +9,6 @@
 		
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<!-- font-awesome -->
 		
 		<link rel="stylesheet" href="assets/css/fontawesome.min.css" />
@@ -233,12 +230,12 @@ foreach ($result as $res) {
 		$hw = ($_POST['worker']);
 		$status = ($_POST['status']);
 		$pid = ($_POST['serial_no']);
-		
+		$count=1;
 		
 
 			$query = "INSERT INTO vaccine_assign
-				(p_name,p_email,v_type,v_schedule_one,v_schedule_two,p_age,p_gender,worker_name,mail_status,user_id)
-			VALUES('$pname','$pemail','$vtype','$vsd1','$vsd2','$page','$gender','$hw','$status',$pid)";
+				(p_name,p_email,v_type,v_schedule_one,v_schedule_two,p_age,p_gender,worker_name,mail_status,user_id,count)
+			VALUES('$pname','$pemail','$vtype','$vsd1','$vsd2','$page','$gender','$hw','$status',$pid,$count)";
 			
 			if($vaccine->insert($query)){
 				
@@ -249,23 +246,6 @@ foreach ($result as $res) {
 				</div>";
 				
 
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				
 			}
 			

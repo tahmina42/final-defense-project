@@ -113,6 +113,7 @@ $query="SELECT
 				vaccine_assign.p_age,
 				vaccine_assign.p_gender,
 				vaccine_assign.worker_name,
+				vaccine_assign.count,
 				user.u_name,
 				user.u_contact
 		FROM vaccine_assign 
@@ -136,6 +137,7 @@ if($result){
 			$page = ($res['p_age']);
 			$gender = ($res['p_gender']);
 			$hw = ($res['worker_name']);
+			$count=($res['count']);
 	}
 }
 ?>
@@ -255,6 +257,7 @@ if($result){
 		$page = ($_POST['page']);
 		$gender=($_POST['gender']);
 		$status = ($_POST['status']);
+		$count=$count+1;
 		//$hw = ($_POST['worker']);
 		
 
@@ -265,8 +268,8 @@ if($result){
 					v_schedule_two='$vsd2',	
 					p_age='$page',
 					p_gender='$gender',
-					mail_status='$status'
-					
+					mail_status='$status',
+					count='$count'
 					WHERE 
 					p_id='$id' ";
 					if($assign->insert($query))

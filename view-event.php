@@ -40,7 +40,8 @@ include("functions.php");
 					<ul class="menu__box">
 						
 						<li><a class="menu__item" href="index.php">Home Page</a></li>
-						<li><a class="menu__item" href="patient-vaccine-card.php">Vaccine Card</a></li>	
+						<li><a class="menu__item" href="view-event.php">Event</a></li>	
+						<li><a class="menu__item" href="vaccinelist.php">Vaccine List</a></li>	
 						<li><a class="menu__item" href="search-worker.php">Search Health Worker</a></li>
 						
 					</ul>

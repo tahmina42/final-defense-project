@@ -29,10 +29,14 @@ if (isset($_POST['login'])){
 				$_SESSION['success']  = "You are now logged in";
 				
 			}
-			else{
+			else if($_SESSION['type']=='Admin'){
 				
 				
 				echo"<script>window.location.href=\"admin.php\"</script>";
+			}
+			else{
+				
+				echo"<strong>User not found</font></strong>";
 			}
 		}
 		else{

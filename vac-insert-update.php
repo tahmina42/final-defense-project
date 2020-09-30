@@ -19,11 +19,11 @@
 		$page = ($_POST['page']);
 		$gender = ($_POST['gender']);
 		$hw = ($_POST['worker']);
-		
+		$count=0;
 
 			$query = "INSERT INTO vaccine_assign
-				(v_type,v_schedule_one,v_schedule_two,v_schedule_three,v_schedule_four,p_age,p_gender,worker_name)
-			VALUES('$vtype','$vsd1','$vsd2','$vsd3','$vsd4','$page','$gender','$hw')";
+				(v_type,v_schedule_one,v_schedule_two,v_schedule_three,v_schedule_four,p_age,p_gender,worker_name,count)
+			VALUES('$vtype','$vsd1','$vsd2','$vsd3','$vsd4','$page','$gender','$hw',$count)";
 			
 			if($registration->insert($query)){
 				
@@ -31,7 +31,7 @@
 				echo"assigned";
 			}
 			
-	}
+	   }
 
 
 	

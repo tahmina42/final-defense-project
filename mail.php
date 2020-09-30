@@ -8,14 +8,26 @@ $mailing= new functions();
 $mail = new PHPMailer;
 $id = ($_GET['id']);
 if (isset($_GET['id'])){
-	
-	$result = $mailing->select("SELECT * FROM vaccine_assign WHERE p_id=$id");
+			$query="SELECT 
+						vaccine_assign.p_id,
+						vaccine_assign.v_type,
+						vaccine_assign.mail_status,
+						user.u_name,
+						user.u_email
+				FROM vaccine_assign 
+				INNER JOIN user 
+				ON 
+				user.u_id=vaccine_assign.user_id
+				where 
+				p_id='$id' ";  
+	//$result = $mailing->select("SELECT * FROM vaccine_assign WHERE p_id=$id");
 	
 	//need to relate database
+	$result = $mailing->select($query);		
 	foreach ($result as $res) {
 		
-		$user_name 	=($res['p_name']);
-		$to_email = ($res['p_email']);
+		$user_name 	=($res['u_name']);
+		$to_email = ($res['u_email']);
 		$vaccine = ($res['v_type']);
 		
 		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -36,8 +48,8 @@ if (isset($_GET['id'])){
 		$mail->isHTML(true);
 		
 		$mail->Subject = 'Reminder';
-		$mail->Body    = 'Dear $user_name..You have vaccine taking schedule today for vaccine $vaccine .To know more contact with your health worker';
-		$mail->AltBody = 'Dear $user_name..You have vaccine taking schedule today for vaccine $vaccine .To know more contact with your health worker';
+		$mail->Body    = "Dear $user_name ..You have vaccine taking schedule today for vaccine $vaccine .To know more contact with your health worker";
+		$mail->AltBody = "Dear $user_name..You have vaccine taking schedule today for vaccine $vaccine .To know more contact with your health worker";
 		
 		$msg="Email has been successfully sent to $user_name...";
 		if ($mail->send())

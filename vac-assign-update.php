@@ -107,19 +107,20 @@ if (isset($_SESSION['email']))
 					<center>
 						<h2 class="mb-20">Vaccine Assigned Patients</h2>
 							<table class="table table-striped">
-							<tr style='border-bottom:1px solid gray;' class="tr-back">
-								<td>Full Name</td>
-								<td>Contact</td>
-								<td>Vaccine Type</td>
-								<td>First Dose</td>
-								<td>Next Dose</td>	
-								<td>Age</td>
-								<td>Gender</td>
-								<td>Health Worker</td>
-								<td>Update Schedule</td>
-								
+								<tr style='border-bottom:1px solid gray;' class="tr-back">
+									<td>Full Name</td>
+									<td>Contact</td>
+									<td>Vaccine Type</td>
+									<td>First Dose</td>
+									<td>Next Dose</td>	
+									<td>Age</td>
+									<td>Gender</td>
+									<td>Dose</td>
+									<td>Health Worker</td>
+									<td>Update Schedule</td>
+									
 
-							</tr>
+								</tr>
 							
 								<?php
 
@@ -134,6 +135,7 @@ if (isset($_SESSION['email']))
 												vaccine_assign.p_age,
 												vaccine_assign.p_gender,
 												vaccine_assign.worker_name,
+												vaccine_assign.count,
 												user.u_name,
 												user.u_contact
 											FROM vaccine_assign 
@@ -180,6 +182,88 @@ if (isset($_SESSION['email']))
 													
 													".$res['p_gender']."
 												</td>";
+												echo "<td style='border-bottom:1px solid gray;'>";
+													$d_count= ($res['count']);
+													$type=$res['v_type'];
+														if($type=='DPT')
+														{
+															if($d_count==1){
+																echo"<span class='text-danger'><b>Left-1 Dose</b></span>";
+															}
+															else if($d_count==2){
+																echo"<span class='text-success'><b>Completed</b></span>";
+															}
+															else{
+																echo"<span class='text-success'>No vaccine</span>";
+															}
+														}
+														else if($type=='HepA vaccine')
+														{
+															if($d_count==1){
+																echo"<span class='text-danger'><b>Left-1 Dose</b></span>";
+															}
+															else if($d_count==2){
+																echo"<span class='text-success'><b>Completed</b></span>";
+															}
+															else{
+																echo"<span class='text-success'>No vaccine</span>";
+															}
+														}
+														else if($type=='HepB vaccine')
+														{
+															if($d_count==1){
+																echo"<span class='text-danger'><b>Left-2 Dose</b></span>";
+															}
+															else if($d_count==2){
+																echo"<span class='text-danger'><b>Left-1 Dose</b></span>";
+															}
+															
+															else{
+																echo"<span class='text-success'><b>Completed</b></span>";
+															}
+														}
+														
+														else if($type=='Flu vaccine')
+														{
+															if($d_count==1){
+																echo"<span class='text-danger'><b>Left-1 Dose</b></span>";
+															}
+															else if($d_count==2){
+																echo"<span class='text-success'><b>Completed</b></span>";
+															}
+															
+															else{
+																echo"<span class='text-success'><b>Already Completed</b></span>";
+															}
+														}
+														else if($type=='Varicella vaccine')
+														{
+															if($d_count==1){
+																echo"<span class='text-danger'><b>Left-1 Dose</b></span>";
+															}
+															else if($d_count==2){
+																echo"<span class='text-success'><b>Completed</b></span>";
+															}
+															
+															else{
+																echo"<span class='text-success'><b>Already Completed</b></span>";
+															}
+														}
+														else if($type=='Influenza')
+														{
+															if($d_count==1){
+																echo"<span class='text-danger'><b>Left-1 Dose</b></span>";
+															}
+															else if($d_count==2){
+																echo"<span class='text-success'><b>Completed</b></span>";
+															}
+															
+															else{
+																echo"<span class='text-success'><b>Already Completed</b></span>";
+															}
+														}
+														
+												echo"</td>";
 												echo "<td style='border-bottom:1px solid gray;'>
 													
 													".$res['worker_name']."

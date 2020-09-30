@@ -541,8 +541,12 @@ input.mailsearch {
 tr.headtab {
     background-color: #0000005c !important;
 }
+
 table.table.table-striped.disease tr td {
     border: 2px solid white;
+}
+table.table.table-striped.disease {
+    width: 88% !important;
 }
 h3.vaccine-details {
     background: cadetblue;
@@ -553,7 +557,8 @@ h3.vaccine-details {
     text-align: center;
 }
 tr.headtab2 {
-background-color: cadetblue !important;}
+background-color: cadetblue !important;
+}
 .vsearch{
 	
 	background: cadetblue;
@@ -571,7 +576,7 @@ ul.recent-event li {
 }
 .revent {
     border-left: 3px solid cadetblue;
-    height: 200px;
+    
 }
 div#eventimg_div {
     border: 1px solid #8e7e7e;
@@ -650,4 +655,8 @@ a.date {
     border-radius: 50%;
     border: 2px solid gray;
     margin: 0px 0px;
+}
+.result-tab {
+    margin-top: -76px;
+    /* float: left !important; */
 }

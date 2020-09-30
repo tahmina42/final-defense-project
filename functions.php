@@ -45,9 +45,9 @@ class functions extends connection
 
 	public function delete($id) 
 	{ 
-		$query = "DELETE FROM reguser WHERE reg_id = $id";
 		
-		$result = $this->con->query($query);
+		
+		$result = $this->con->query($id);
 	
 		if ($result == false) {
 			echo 'Error: cannot delete data ';
